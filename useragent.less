@@ -1,0 +1,90 @@
+@color-weixin: #5AC461;
+@color-alipay: #5AC8FA;
+@color-normal: #8E8E93;
+@color-purple: #5856D6;
+@color-text: #2C353C;
+
+@color-body-bg: #eee;
+
+
+@import "../../lib/css/reset";
+
+
+
+.border-radius(@radius:10px){
+  -webkit-border-radius: @radius;
+  -moz-border-radius: @radius;
+  border-radius: @radius;
+}
+
+
+body{
+  width: 100%;
+  color: @color-text;
+  font-size: 1rem;
+  background-color: #eeeeee;
+}
+
+
+
+.container{
+  font-size: 0.8em;
+  padding: 10px 10px;
+}
+
+.display{
+  text-shadow: 1px 1px 0 rgba(0,0,0,0.2);
+  text-align: center;
+  margin-bottom: 10px;
+  h1{
+    padding: 20px 10px;
+    .border-radius();
+  }
+  b{
+    font-size: 1.5em;
+  }
+}
+
+.bg-weixin{
+  background-color: @color-weixin;
+  color: #ffffff;
+}
+.bg-alipay{
+  background-color: @color-alipay;
+  color: #ffffff;
+}
+.bg-normal{
+  background-color: @color-purple;
+  color: #ffffff;
+}
+.bg-others{
+  background-color: @color-normal;
+  color: #ffffff;
+}
+
+
+.content{
+  font-size: 1em;
+  border: 1px solid #dddddd;
+  background-color: #fff;
+  .border-radius(5px);
+  padding: 10px;
+}
+
+table{
+  width: 100%;
+}
+
+tr{
+  &:nth-child(odd){
+    background-color: #fff;
+  }
+  &:nth-child(even){
+    background-color: @color-body-bg;
+  }
+}
+
+td{
+  padding: 5px;
+  background-color: transparent;
+}

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>UserAgent</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href=useragent.css>
+</head>
+<body>
+<div class="container">
+    <div class="display">
+        <h1 class=""></h1>
+    </div>
+    <div class="display">
+        <p><b class="platform">Mobile</b> - <b class="modal">iPhone</b></p>
+    </div>
+    <div class="content">
+        <table>
+            <tbody>
+
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+<script>
+
+    window.onload = () => {
+        const userAgent = {
+            appCodeName: navigator.appCodeName,
+            appName: navigator.appName,
+            appVersion: navigator.appVersion,
+            cookieEnabled: navigator.cookieEnabled,
+            language: navigator.language,
+            platform: navigator.platform,
+            productSub: navigator.productSub,
+            product: navigator.product,
+            userAgent: navigator.userAgent,
+            vendor: navigator.vendor,
+        };
+
+        let uaHTML = '';
+        for(item in userAgent){
+            let template = `<tr><td>${item}</td><td>${userAgent[item]}</td></tr>`;
+            uaHTML += template;
+        }
+
+        document.querySelector('tbody').innerHTML = uaHTML;
+
+        let ua = navigator.userAgent;
+        let displayBrowser = document.querySelector('.display h1');
+        let displayPlatform = document.querySelector('.platform');
+        let displayModal = document.querySelector('.modal');
+
+
+        // 判断平台
+        if(browsers.platform.mac.exp.test(ua)){
+            displayPlatform.innerText = browsers.platform.mac.name;
+        } else if (browsers.platform.mobile.exp.test(ua)) {
+            displayPlatform.innerText = browsers.platform.mobile.name;
+        } else if (browsers.platform.pc.exp.test(ua)){
+            displayPlatform.innerText = browsers.platform.pc.name;
+        } else {
+            displayPlatform.innerText = "其它平台"
+        }
+
+        // 判断设备型号
+        if(browsers.modal.iphone.exp.test(ua)){
+            displayModal.innerText = browsers.modal.iphone.name;
+        } else if (browsers.modal.android.exp.test(ua)) {
+            displayModal.innerText = browsers.modal.android.name;
+        } else {
+            displayModal.innerText = "其它设备"
+        }
+
+        // 判断应用
+        if(browsers.app.alipay.exp.test(ua)){
+            displayBrowser.innerText = browsers.app.alipay.name;
+            displayBrowser.classList.add(browsers.app.alipay.class)
+        } else if(browsers.app.weixin.exp.test(ua)){
+            displayBrowser.innerText = browsers.app.weixin.name;
+            displayBrowser.classList.add(browsers.app.weixin.class)
+        } else if(browsers.app.chrome.exp.test(ua)) {
+            displayBrowser.innerText = browsers.app.chrome.name;
+            displayBrowser.classList.add(browsers.app.chrome.class)
+        } else if(browsers.app.safari.exp.test(ua)){
+            displayBrowser.innerText = browsers.app.safari.name;
+            displayBrowser.classList.add(browsers.app.safari.class)
+        } else {
+            displayBrowser.innerText = '非微信或支付宝';
+            displayBrowser.classList.add('bg-normal');
+        }
+    };
+
+    /*
+    * 所有参数
+    * platform: 平台
+    * modal:    型号
+    * app:      应用
+    * */
+    let browsers = {
+        platform: {
+            mobile:     {exp:    /Mobile/,      name: "手机"},
+            pc:         {exp:    /Windows/,     name: "Windos"},
+            mac:        {exp:    /Macintosh/,   name: "macOS"},
+        },
+        modal: {
+            iphone:     {exp:    /iPhone/,      name: "iPhone"},
+            android:    {exp:    /Android/,     name: "android"},
+        },
+        app: {
+            weixin:     {exp:    /MicroMessenger/,  class: 'bg-weixin',    name:   "微信"},
+            alipay:     {exp:    /AliApp/,          class: 'bg-alipay',    name:   "支付宝"},
+            chrome:     {exp:    /CriOS|Chrome/,    class: 'bg-normal',    name:   "谷歌浏览器内核"},
+            safari:     {exp:    /Safari/,          class: 'bg-normal',    name:   "Safari"},
+        }
+    }
+</script>
+
+</body>
+</html>
