@@ -1,6 +1,6 @@
 
 
-<img src="https://github.com/KyleBing/UserAgent/blob/master/link_qr.png" width=300)>
+<img src="https://github.com/KyleBing/UserAgent/blob/master/link_qr.png" width=200)>
 
 
 
