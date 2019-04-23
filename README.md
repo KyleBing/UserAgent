@@ -16,6 +16,4 @@ Huawei          Mozilla/5.0 (Linux; Android 8.0.0; PIC-AL00 Build/HUAWEIPIC-AL00
 ```
 
 
-<img src="https://github.com/KyleBing/UserAgent/blob/master/img/screenshot_alipay.png" width=200)>
-<img src="https://github.com/KyleBing/UserAgent/blob/master/img/screenshot_wexin.png" width=200)>
-<img src="https://github.com/KyleBing/UserAgent/blob/master/img/screenshot_safari.png" width=200)>
+<img src="https://github.com/KyleBing/UserAgent/blob/master/img/screenshot_alipay.png" width=200)> <img src="https://github.com/KyleBing/UserAgent/blob/master/img/screenshot_weixin.png" width=200)> <img src="https://github.com/KyleBing/UserAgent/blob/master/img/screenshot_safari.png" width=200)>
