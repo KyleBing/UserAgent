@@ -1,6 +1,6 @@
 
 
-<img src="https://github.com/KyleBing/UserAgent/blob/master/link_qr.png" width=200)>
+<img src="https://github.com/KyleBing/UserAgent/blob/master/img/link_qr.png" width=200)>
 
 
 
@@ -14,3 +14,8 @@ App Weibo       Mozilla/5.0 (iPhone; CPU iPhone OS 12_2 like Mac OS X) AppleWebK
 App Chrome      Mozilla/5.0 (iPhone; CPU iPhone OS 12_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) CriOS/73.0.3683.68 Mobile/15E148 Safari/605.1
 Huawei          Mozilla/5.0 (Linux; Android 8.0.0; PIC-AL00 Build/HUAWEIPIC-AL00) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Mobile Safari/537.36
 ```
+
+
+<img src="https://github.com/KyleBing/UserAgent/blob/master/img/screenshot_alipay.png" width=200)>
+<img src="https://github.com/KyleBing/UserAgent/blob/master/img/screenshot_wexin.png" width=200)>
+<img src="https://github.com/KyleBing/UserAgent/blob/master/img/screenshot_safari.png" width=200)>
