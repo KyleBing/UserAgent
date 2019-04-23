@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>UserAgent</title>
+    <link rel="shortcut icon" href="user_agent.png" type="image/png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href=useragent.css>
 </head>
@@ -12,7 +13,7 @@
         <h1 class=""></h1>
     </div>
     <div class="display">
-        <p><b class="platform">Mobile</b> - <b class="modal">iPhone</b></p>
+        <p><b class="platform">Mobile</b><b class="modal">iPhone</b></p>
     </div>
     <div class="content">
         <table>
@@ -20,6 +21,9 @@
 
             </tbody>
         </table>
+        <div class="qr-warp">
+            <img src="link_qr.png" alt="二维码链接">
+        </div>
     </div>
 </div>
 
@@ -45,14 +49,12 @@
             let template = `<tr><td>${item}</td><td>${userAgent[item]}</td></tr>`;
             uaHTML += template;
         }
-
         document.querySelector('tbody').innerHTML = uaHTML;
 
         let ua = navigator.userAgent;
         let displayBrowser = document.querySelector('.display h1');
         let displayPlatform = document.querySelector('.platform');
         let displayModal = document.querySelector('.modal');
-
 
         // 判断平台
         if(browsers.platform.mac.exp.test(ua)){
@@ -62,7 +64,7 @@
         } else if (browsers.platform.pc.exp.test(ua)){
             displayPlatform.innerText = browsers.platform.pc.name;
         } else {
-            displayPlatform.innerText = "其它平台"
+            displayPlatform.innerText = browsers.platform.other.name
         }
 
         // 判断设备型号
@@ -71,7 +73,7 @@
         } else if (browsers.modal.android.exp.test(ua)) {
             displayModal.innerText = browsers.modal.android.name;
         } else {
-            displayModal.innerText = "其它设备"
+            displayModal.innerText = ''
         }
 
         // 判断应用
@@ -88,8 +90,8 @@
             displayBrowser.innerText = browsers.app.safari.name;
             displayBrowser.classList.add(browsers.app.safari.class)
         } else {
-            displayBrowser.innerText = '非微信或支付宝';
-            displayBrowser.classList.add('bg-normal');
+            displayBrowser.innerText = browsers.app.other.name;
+            displayBrowser.classList.add(browsers.app.other.class);
         }
     };
 
@@ -104,6 +106,7 @@
             mobile:     {exp:    /Mobile/,      name: "手机"},
             pc:         {exp:    /Windows/,     name: "Windos"},
             mac:        {exp:    /Macintosh/,   name: "macOS"},
+            other:      {                       name: "其它平台"},
         },
         modal: {
             iphone:     {exp:    /iPhone/,      name: "iPhone"},
@@ -114,6 +117,7 @@
             alipay:     {exp:    /AliApp/,          class: 'bg-alipay',    name:   "支付宝"},
             chrome:     {exp:    /CriOS|Chrome/,    class: 'bg-normal',    name:   "谷歌浏览器内核"},
             safari:     {exp:    /Safari/,          class: 'bg-normal',    name:   "Safari"},
+            other:      {                           class: 'bg-other',     name:   "其它应用"},
         }
     }
 </script>
