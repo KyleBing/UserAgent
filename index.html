@@ -5,7 +5,7 @@
     <title>UserAgent</title>
     <link rel="shortcut icon" href="img/user_agent.png" type="image/png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href=useragent.css>
+    <link rel="stylesheet" href=useragent.css?v=20240220115622>
 </head>
 <body>
 <div class="container">
@@ -30,31 +30,31 @@
 
 <script>
 
-    window.onload = () => {
-        const userAgent = {
-            appCodeName: navigator.appCodeName,
-            appName: navigator.appName,
-            appVersion: navigator.appVersion,
-            cookieEnabled: navigator.cookieEnabled,
-            language: navigator.language,
-            platform: navigator.platform,
-            productSub: navigator.productSub,
-            product: navigator.product,
-            userAgent: navigator.userAgent,
-            vendor: navigator.vendor,
+    window.onload = function() {
+        var userAgent = {
+            appCodeName:    navigator.appCodeName,
+            appName:        navigator.appName,
+            appVersion:     navigator.appVersion,
+            cookieEnabled:  navigator.cookieEnabled,
+            language:       navigator.language,
+            platform:       navigator.platform,
+            productSub:     navigator.productSub,
+            product:        navigator.product,
+            userAgent:      navigator.userAgent,
+            vendor:         navigator.vendor,
         };
 
-        let uaHTML = '';
+        var uaHTML = '';
         for(item in userAgent){
-            let template = `<tr><td>${item}</td><td>${userAgent[item]}</td></tr>`;
+            var template = '<tr><td>' + item + '</td><td>' + userAgent[item] + '</td></tr>';
             uaHTML += template;
         }
         document.querySelector('tbody').innerHTML = uaHTML;
 
-        let ua = navigator.userAgent;
-        let displayBrowser = document.querySelector('.display h1');
-        let displayPlatform = document.querySelector('.platform');
-        let displayModal = document.querySelector('.modal');
+        var ua = navigator.userAgent;
+        var displayBrowser = document.querySelector('.display h1');
+        var displayPlatform = document.querySelector('.platform');
+        var displayModal = document.querySelector('.modal');
 
         // 判断平台
         if(browsers.platform.mac.exp.test(ua)){
@@ -101,7 +101,7 @@
     * modal:    型号
     * app:      应用
     * */
-    let browsers = {
+    var browsers = {
         platform: {
             mobile:     {exp:    /Mobile/,      name: "手机"},
             pc:         {exp:    /Windows/,     name: "Windos"},
